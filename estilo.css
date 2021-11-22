@@ -22,10 +22,14 @@ main{
     background-color: lightgray;
 }
 
+/* O BLOCO DIVMAIN RECEBEU A PROPRIEDADE DISPLAY FLEX JUSTAMENTE PARA AS COLUNAS FICAREM UMA AO LADO DA OUTRA */
 .divMain{
     display: flex;
 }
 
+/* A COLUNA DA ESQUERDA RECEBEU A PROPRIEDADE DISPLAY GRUD PORQUE A INTENÇÃO É MOSTRAR OS ITENS DELA EM FORMA DE BLOCOS MENORES,
+NOTE TAMBÉM A PROPRIEDADE GRID-TEMPLATE-AREAS QUE DEFINE COMO FICARÁ A DISPOSIÇÃO DOS ELEMENTOS, O ELEMENTO "A" DO GRID, OCUPARÁ
+3 LINHAS E 3 COLUNAS, O RESTANTE SERÁ SOMENTE UM BLOCO MESMO */
 .colEsquerda{
     width: 70%;
     height: 500px;
@@ -33,13 +37,25 @@ main{
     grid-template-areas:
     'A A A B'
     'A A A C'
-    'A A A D';
+    'A A A D'
+    'E F G H';
     grid-gap: 10px;
     margin-left: 8px;
     margin-right: 8px;
     background-color: tomato;
 }
 
+/* SOMENTE UMA COR DE FUNDO NOS DIVS DA COLUNA DA ESQUERDA, PARA VER QUE AS IMAGENS NÃO ESTÃO NA MESMA PROPORÇÃO DOS BLOCOS */
+.colEsquerda > div{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* SOMENTE PRECISEI DEFINIR O ITEM1 COMO SENDO O A, O RESTANTE OCUPARAM AS POSIÇÕES RESTANTES RESPECTIVAMENTE */
+.item1 {
+    grid-area: A;
+}
+
+/* NENHUM SEGREDO AQUI, SOMENTE CONFIGURAÇÕES SIMPLES */
 .colDireita{
     width: 30%;
     height: 500px;
@@ -47,14 +63,8 @@ main{
     background-color: chocolate;
 }
 
-.grid-container > div{
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.item1 {
-    grid-area: A;
-}
-
+/* ESSA CONFIGURAÇÃO É IMPORTANTE, DEFINI A IMAGEM PARA OCUPAR, EM LARGURA, TODO O ESPAÇO DO BLOCO ONDE ESTÁ INSERIDA, NESSE CASO, UMA DIV.
+NOTE QUE SE EU TIVESSE COLOCADO HEIGHT ELA TERIA FICADO ESTICADA, POIS EM QUESTÃO DE ALTURA, SOBROU UM ESPAÇO*/
 .imgMaior, .imgMenor{
     width: 100%;
 }
